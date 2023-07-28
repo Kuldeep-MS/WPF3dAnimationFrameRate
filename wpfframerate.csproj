@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	  <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+	<ItemGroup>
+		<RuntimeHostConfigurationOption Include="System.Windows.Media.IsHardwareAccelerationEnabledForRdp" Value="true" />
+	</ItemGroup>
+	<PropertyGroup>
+		<WpfRepoRoot>C:\Users\singhashish\source\repos\wpf</WpfRepoRoot>
+	</PropertyGroup>
+	<Import Project="$(WpfRepoRoot)\eng\wpf-debug.targets" />
+</Project>
