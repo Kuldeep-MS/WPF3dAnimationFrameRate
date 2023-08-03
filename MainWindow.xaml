@@ -6,12 +6,30 @@
         xmlns:local="clr-namespace:wpfframerate"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Viewport3D Name="viewport3D">
+    <Grid x:Name="DisplayGrid" ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Viewport3D Name="viewport3D" Grid.Column="1" Grid.Row="0">
             <Viewport3D.Camera>
                 <PerspectiveCamera Position="0, 0, 5" LookDirection="0, 0, -1" UpDirection="0, 1, 0" FieldOfView="60" />
             </Viewport3D.Camera>
         </Viewport3D>
-        <Label x:Name="FrameRateLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" />
+        <Label x:Name="FrameRateLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="CpuUsageLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="GpuUsageLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="GpuMemryUsageLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,60,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="RamUsageLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,80,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="HwAcc" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,100,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="ProcessNameLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="Num" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,140,10,0" Grid.Row="0" Grid.Column="0"/>
+        <Button Content="Add New Cube" HorizontalAlignment="Right" Margin="0,160,10,0" VerticalAlignment="Top" Click="Button_Click" Grid.Row="0" Grid.Column="0"/>
     </Grid>
 </Window>
