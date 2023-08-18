@@ -27,8 +27,8 @@ namespace wpfframerate
         private RotateTransform3D rotateTransform = new RotateTransform3D();
         PerformanceCounter cpuCounter = new PerformanceCounter("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName);
         PerformanceCounter ramCounter = new PerformanceCounter("Process", "Working Set", Process.GetCurrentProcess().ProcessName);
-        PerformanceCounter gpuCounter = new PerformanceCounter("NVIDIA GPU", "% GPU Usage", Process.GetCurrentProcess().ProcessName);
-        PerformanceCounter gpuMemoryCounter = new PerformanceCounter("NVIDIA GPU", "% GPU Memory Usage", Process.GetCurrentProcess().ProcessName);
+        //PerformanceCounter gpuCounter = new PerformanceCounter("NVIDIA GPU", "% GPU Usage", Process.GetCurrentProcess().ProcessName);
+        //PerformanceCounter gpuMemoryCounter = new PerformanceCounter("NVIDIA GPU", "% GPU Memory Usage", Process.GetCurrentProcess().ProcessName);
         //private Viewport3D v3d = new Viewport3D();
         int col = 1;
         int row = 0;
@@ -89,8 +89,8 @@ namespace wpfframerate
 
             CpuUsageLabel.Content = $"CPU Usage: {sum/queue.Count} ";
             RamUsageLabel.Content = $"Ram Uagae: {r} MB";
-            GpuUsageLabel.Content = $"GPU Usage: {gpuCounter.NextValue()} ";
-            GpuMemryUsageLabel.Content = $"GPU Memory Usage: {(gpuMemoryCounter.NextValue()) / (1024 * 1024)} MB";
+            //GpuUsageLabel.Content = $"GPU Usage: {gpuCounter.NextValue()} ";
+            //GpuMemryUsageLabel.Content = $"GPU Memory Usage: {(gpuMemoryCounter.NextValue()) / (1024 * 1024)} MB";
 
         }
 
@@ -181,15 +181,18 @@ namespace wpfframerate
                 DisplayGrid.RowDefinitions.Add(new RowDefinition());
                 row++;
             }
-            ModelVisual3D modelVisual = new ModelVisual3D();
-            modelVisual.Content = Create3DCube();
-            modelVisual.Transform = rotateTransform;
-            Viewport3D vp3D = new Viewport3D();
-            vp3D.Camera = new PerspectiveCamera(new Point3D(0, 0, 5), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 60);
-            vp3D.Children.Add(modelVisual);
-            DisplayGrid.Children.Add(vp3D);
-            Grid.SetColumn(vp3D, col);
-            Grid.SetRow(vp3D, row);
+            //ModelVisual3D modelVisual = new ModelVisual3D();
+            //modelVisual.Content = Create3DCube();
+            //modelVisual.Transform = rotateTransform;
+            //Viewport3D vp3D = new Viewport3D();
+            Frame fp = new Frame();
+            fp.Source = new Uri("Page1.xaml", UriKind.Relative);
+            fp.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+            //vp3D.Camera = new PerspectiveCamera(new Point3D(0, 0, 5), new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), 60);
+            //vp3D.Children.Add(modelVisual);
+            DisplayGrid.Children.Add(fp);
+            Grid.SetColumn(fp, col);
+            Grid.SetRow(fp, row);
             count++;
 
             Num.Content = $"Numbe of Cubes: {count}";

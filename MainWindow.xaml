@@ -22,6 +22,10 @@
                 <PerspectiveCamera Position="0, 0, 5" LookDirection="0, 0, -1" UpDirection="0, 1, 0" FieldOfView="60" />
             </Viewport3D.Camera>
         </Viewport3D>
+        <Frame Name="AnimatingAlongAPathExampleFrame" Grid.Column="2" Grid.Row="0"
+        Source="Page1.xaml" Background="White"
+        NavigationUIVisibility="Hidden" />    
+
         <Label x:Name="FrameRateLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Grid.Row="0" Grid.Column="0"/>
         <Label x:Name="CpuUsageLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,10,0" Grid.Row="0" Grid.Column="0"/>
         <Label x:Name="GpuUsageLabel" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,10,0" Grid.Row="0" Grid.Column="0"/>

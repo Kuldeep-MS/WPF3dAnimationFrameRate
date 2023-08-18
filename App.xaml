@@ -4,6 +4,17 @@
              xmlns:local="clr-namespace:wpfframerate"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DrawingBrush x:Key="MyWireBrushResource" 
+            Viewport="0,0,10,10" ViewportUnits="Absolute" TileMode="Tile">
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <DrawingGroup.Children>
+                        <GeometryDrawing Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" Brush="#66CCCCFF" />
+                        <GeometryDrawing Geometry="M0,0 L0,1 0.1,1, 0.1,0Z" Brush="#66CCCCFF" />
+                    </DrawingGroup.Children>
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+
     </Application.Resources>
 </Application>
